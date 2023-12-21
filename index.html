@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Button Click Counter</title>
+    <style>
+        /* Define styles for the button */
+        #clickButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="clickButton">Click me!</button>
+    <p>Button clicked: <span id="clickCount">0</span> times</p>
+
+    <script>
+        const button = document.getElementById('clickButton');
+        const clickCount = document.getElementById('clickCount');
+        let count = 0;
+        let colorIndex = 0;
+        const colors = ['red', 'green', 'blue']; // Define your colors here
+
+        function updateCount() {
+            count++;
+            clickCount.textContent = count;
+        }
+
+        function changeButtonColor() {
+            button.style.backgroundColor = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }
+
+        button.addEventListener('click', function () {
+            updateCount();
+            changeButtonColor();
+        });
+    </script>
+</body>
+
+</html>
